@@ -3,18 +3,33 @@
         {
             "id": 1,
             "email": "andrey@yandex.ru",
-            "password": "123456"
+            "password": "123456",
+            "firstName": "Lisin",
+            "middleName": "Andrey",
+            "lastName": "Victorovich",
+            "number": 88005553535,
+            "company": "Takeoff Staff"
         },
         {
           
             "id": 2,
             "email": "lisin@yandex.ru",
-            "password": "123456"
+            "password": "123456",
+            "firstName": "Kravchenko",
+            "middleName": "Anton",
+            "lastName": "Antonovich",
+            "number": 88023445567,
+            "company": "Ant-Design"
         },
         {
             "id": 3,
             "email": "victorovich@yandex.ru",
-            "password": "123456"
+            "password": "123456",
+            "firstName": "Britny",
+            "middleName": "Spirs",
+            "lastName": "Idontknow",
+            "number": 7034415567,
+            "company": "Worner"
         }
     ]
 }

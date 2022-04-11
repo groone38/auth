@@ -7,7 +7,6 @@ import { useAppSelector } from "../../Hooks";
 import { OutUser } from "../../store/actions/userAction/authAction";
 import { useDispatch } from "react-redux";
 import classes from "./Header.module.css";
-import Auth from './../auth/Auth';
 import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
@@ -18,7 +17,7 @@ export const Header = () => {
   };
   return (
     <>
-      {sing ? (
+      {sing && (
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -29,8 +28,6 @@ export const Header = () => {
             </Button>
           </Toolbar>
         </AppBar>
-      ) : (
-        <Auth />
       )}
     </>
   );

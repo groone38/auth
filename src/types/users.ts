@@ -4,6 +4,11 @@ export interface User {
     id: number
     email: string
     password: string
+    firstName: string
+    middleName: string
+    lastName: string
+    number: number
+    company: string
 }
 
 export interface UserState {

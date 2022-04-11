@@ -1,28 +1,38 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contacts from "./components/Contacts";
+import Contacts from "./components/contacts/Contacts";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./store/actions/userAction/usersAction";
 import classes from "./App.module.css";
 import { AuthActionTypes } from "./store/actions/actionTypes";
-import { Header } from './components/header/Header';
+import { Header } from "./components/header/Header";
+import Auth from "./components/auth/Auth";
+import { useAppSelector } from "./Hooks";
 
 function App() {
+  const sing = useAppSelector((state) => state.auth.sing);
   const dispatch = useDispatch();
+  console.log(!!localStorage.getItem("auth"));
   useEffect(() => {
-    if(!!localStorage.getItem('auth')) {
-      dispatch({type: AuthActionTypes.AUTH_MODAL})
+    if (!!localStorage.getItem("auth")) {
+      dispatch({ type: AuthActionTypes.AUTH_MODAL });
     }
     dispatch(fetchUsers());
   }, []);
-  
+
   return (
     <BrowserRouter>
       <div className={classes.wrapper}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Contacts />} />
-        </Routes>
+        {sing ? (
+          <>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Contacts />} />
+            </Routes>
+          </>
+        ) : (
+          <Auth />
+        )}
       </div>
     </BrowserRouter>
   );
