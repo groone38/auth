@@ -1,0 +1,20 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "andrey@yandex.ru",
+            "password": "123456"
+        },
+        {
+          
+            "id": 2,
+            "email": "lisin@yandex.ru",
+            "password": "123456"
+        },
+        {
+            "id": 3,
+            "email": "victorovich@yandex.ru",
+            "password": "123456"
+        }
+    ]
+}
