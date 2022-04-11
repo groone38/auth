@@ -31,4 +31,14 @@ interface FetchUserErrorAction {
     payload: string
 }
 
-export type UserAction = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction
+interface EditUserAction {
+    type: UserActionTypes.EDIT_USER
+    payload: User
+}
+
+interface RemoveUserAction {
+    type: UserActionTypes.REMOVE_USER
+    payload: number
+}
+
+export type UserAction = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction | EditUserAction | RemoveUserAction

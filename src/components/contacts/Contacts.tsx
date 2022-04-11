@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
 import { useAppSelector } from "../../Hooks";
-import { fetchUsers } from "../../store/actions/userAction/usersAction";
 import { useDispatch } from "react-redux";
 import {
   Button,
@@ -12,8 +10,10 @@ import {
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import classes from './Contacts.module.css'
+import { fetchUsers, removeUser } from "../../store/actions/userAction/usersAction";
 
 const Contacts = () => {
+  const dispatch = useDispatch();
   const users = useAppSelector((state) => state.users.users);
   console.log(users);
   return (
@@ -38,7 +38,7 @@ const Contacts = () => {
         </CardContent>
         <CardActions className={classes.btn}>
           <Button size="small"><EditIcon/></Button>
-          <Button size="small"><DeleteForeverIcon/></Button>
+          <Button size="small" onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers())}}><DeleteForeverIcon/></Button>
         </CardActions>
       </Card>
       ))}

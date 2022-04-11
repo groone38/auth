@@ -11,6 +11,7 @@ import { useAppSelector } from "./Hooks";
 
 function App() {
   const sing = useAppSelector((state) => state.auth.sing);
+  const users = useAppSelector(state => state.users.users)
   const dispatch = useDispatch();
   console.log(!!localStorage.getItem("auth"));
   useEffect(() => {

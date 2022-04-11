@@ -21,7 +21,7 @@ export const Header = () => {
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <NavLink to="/">contacts</NavLink>
+              <NavLink to="/">Contacts</NavLink>
             </Typography>
             <Button color="inherit" onClick={outHandler}>
               Out

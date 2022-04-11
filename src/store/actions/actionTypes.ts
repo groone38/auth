@@ -1,7 +1,9 @@
 export enum UserActionTypes {
     FETCH_USERS = 'FETCH_USERS',
     FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
-    FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
+    FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
+    EDIT_USER = 'EDIT_USER',
+    REMOVE_USER = 'REMOVE_USER'
 }
 
 export enum AuthActionTypes {
