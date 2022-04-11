@@ -1,7 +1,7 @@
 import { Dispatch } from "redux"
 import { AuthAction } from "../../../types/auth"
 import { AuthActionTypes } from "../actionTypes";
-import { store } from './../../rootReducer';
+import { store } from '../../rootReducer';
 
 interface Value {
     email: string
@@ -26,7 +26,6 @@ export const AuthUser = (value: Value) => {
 }
 
 export const OutUser = () => {
-    console.log('work')
     return (dispatch: Dispatch<AuthAction>) => {
         localStorage.removeItem("auth")
         dispatch({type: AuthActionTypes.AUTH_MODAL})
