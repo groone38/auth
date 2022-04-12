@@ -5,7 +5,6 @@ import { UserActionTypes } from "../actionTypes"
 
 export const fetchUsers = () => {
     return async (dispatch: Dispatch<UserAction>) => {
-        console.log('work')
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
             const responce = await axios.get('http://localhost:3001/users')
@@ -20,11 +19,11 @@ export const removeUser = (id: number) => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             await axios.delete(`http://localhost:3001/users/${id}`)
-            
+            fetchUsers()
         } catch (error) {
             
         }
-        fetchUsers()
+        
     }
 }
 

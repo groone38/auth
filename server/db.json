@@ -11,16 +11,6 @@
       "company": "Takeoff Staff"
     },
     {
-      "id": 2,
-      "email": "qwerty@yandex.ru",
-      "password": "123456",
-      "firstName": "Volog",
-      "middleName": "Alex",
-      "lastName": "Kekovich",
-      "number": 8802345678,
-      "company": "Ant Design"
-    },
-    {
       "id": 3,
       "email": "genius@yandex.ru",
       "password": "123456",
@@ -29,6 +19,16 @@
       "lastName": "Erorrovich",
       "number": 888452121234,
       "company": "Dzen"
+    },
+    {
+      "email": "lisin@devpro.ru",
+      "password": "123456",
+      "firstName": "Кравчено",
+      "middleName": "Антон",
+      "lastName": "Владимирович",
+      "number": "87789784545",
+      "company": "DevPro",
+      "id": 1649773281036
     }
   ]
 }

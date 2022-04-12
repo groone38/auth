@@ -6,19 +6,19 @@ const initialState: AuthState = {
     error: null
 }
 
-export const authReducer = (state = initialState, action: AuthAction): AuthState => {
-    switch(action.type) {
-        case AuthActionTypes.AUTH_MODAL:
-            return {
-                sing: !state.sing,
-                error: null
-            }
-        case AuthActionTypes.AUTH_ERROR:
-            return {
-                ...state,
-                error: action.payload
-            }
-        default:
-            return state
-    }
-}
+// export const authReducer = (state = initialState, action: AuthAction): AuthState => {
+//     switch(action.type) {
+//         case AuthActionTypes.AUTH_MODAL:
+//             return {
+//                 sing: !state.sing,
+//                 error: null
+//             }
+//         case AuthActionTypes.AUTH_ERROR:
+//             return {
+//                 ...state,
+//                 error: action.payload
+//             }
+//         default:
+//             return state
+//     }
+// }

@@ -13,11 +13,11 @@ export enum AuthActionTypes {
 
 export enum ModalActionTypes {
     OPEN_MODAL = 'OPEN_MODAL',
+    CLOSE_MODAL = 'CLOSE_MODAL'
 }
 
 export const MODAL_TYPE = {
-	login: 0,
-	register: 1,
-	edit: 2,
-    close: 3
+	login: 'login',
+	register: "register",
+	edit: 'edit',
 }

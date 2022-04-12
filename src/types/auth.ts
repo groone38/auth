@@ -1,4 +1,4 @@
-import { AuthActionTypes } from "../store/actions/actionTypes"
+import { AuthActionTypes, ModalActionTypes } from "../store/actions/actionTypes"
 
 export interface AuthState {
     sing: boolean
@@ -14,4 +14,9 @@ interface AuthOpenModal {
     type: AuthActionTypes.AUTH_MODAL
 }
 
-export type AuthAction = AuthErrorAction | AuthOpenModal
+interface ModalCloseAction {
+    type: ModalActionTypes.CLOSE_MODAL
+}
+
+
+export type AuthAction = AuthErrorAction | AuthOpenModal | ModalCloseAction

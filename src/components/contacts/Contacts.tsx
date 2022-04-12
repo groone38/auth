@@ -11,11 +11,12 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import classes from './Contacts.module.css'
 import { fetchUsers, removeUser } from "../../store/actions/userAction/usersAction";
+import { openModal } from "../../store/actions/modalAction/modalAction";
+import { MODAL_TYPE } from "../../store/actions/actionTypes";
 
 const Contacts = () => {
   const dispatch = useDispatch();
   const users = useAppSelector((state) => state.users.users);
-  console.log(users);
   return (
     <div className={classes.card}>
       {users.map((item) => (
@@ -36,10 +37,10 @@ const Contacts = () => {
             <strong>Company:</strong> {item.company}
           </Typography>
         </CardContent>
-        <CardActions className={classes.btn}>
-          <Button size="small"><EditIcon/></Button>
-          <Button size="small" onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers())}}><DeleteForeverIcon/></Button>
-        </CardActions>
+        <div className={classes.btn_block}>
+          <button className={classes.btn} onClick={() => dispatch(openModal(MODAL_TYPE.edit))}><EditIcon/></button>
+          <button className={classes.btn} onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers())}}><DeleteForeverIcon/></button>
+        </div>
       </Card>
       ))}
     </div>

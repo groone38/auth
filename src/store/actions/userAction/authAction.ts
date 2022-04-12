@@ -1,33 +1,35 @@
 import { Dispatch } from "redux"
 import { AuthAction } from "../../../types/auth"
-import { AuthActionTypes } from "../actionTypes";
+import { AuthActionTypes, ModalActionTypes } from "../actionTypes";
 import { store } from '../../rootReducer';
+import { closeModal } from "../modalAction/modalAction";
 
 interface Value {
     email: string
     password: string
 }
 
-export const AuthUser = (value: Value) => {
-    return (dispatch: Dispatch<AuthAction>) =>  {
-        const prevState = store.getState()
-        const user = prevState.users.users.filter(item => {
-            if(item.email === value.email && item.password === value.password)
-                return item
-        })
-        if(user.length) {
-            localStorage.setItem('auth', value.email)
-            dispatch({type: AuthActionTypes.AUTH_MODAL})
-            dispatch({type: AuthActionTypes.AUTH_ERROR, payload: ""})
-        } else {
-            dispatch({type: AuthActionTypes.AUTH_ERROR, payload: "Пользователь не найден"})
-        }
-        }
-}
+// export const AuthUser = (value: Value) => {
+//     return (dispatch: Dispatch<AuthAction>) =>  {
+//         const prevState = store.getState()
+//         const user = prevState.users.users.filter(item => {
+//             if(item.email === value.email && item.password === value.password)
+//                 return item
+//         })
+//         if(user.length) {
+//             localStorage.setItem('auth', value.email)
+//             dispatch({type: AuthActionTypes.AUTH_MODAL})
+//             dispatch({type: AuthActionTypes.AUTH_ERROR, payload: ""})
+//             dispatch({type: ModalActionTypes.CLOSE_MODAL})
+//         } else {
+//             dispatch({type: AuthActionTypes.AUTH_ERROR, payload: "Пользователь не найден"})
+//         }
+//         }
+// }
 
-export const OutUser = () => {
-    return (dispatch: Dispatch<AuthAction>) => {
-        localStorage.removeItem("auth")
-        dispatch({type: AuthActionTypes.AUTH_MODAL})
-    }
-}
+// export const OutUser = () => {
+//     return (dispatch: Dispatch<AuthAction>) => {
+//         localStorage.removeItem("auth")
+//         dispatch({type: AuthActionTypes.AUTH_MODAL})
+//     }
+// }

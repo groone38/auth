@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../Hooks";
-import { AuthUser} from "../../../store/actions/userAction/authAction";
+// import { AuthUser} from "../../../store/actions/userAction/authAction";
 import Button from "@mui/material/Button";
 import { InputLabel, Input, FormHelperText } from "@mui/material";
 import classes from "./Auth.module.css";
+import { MODAL_TYPE } from "../../../store/actions/actionTypes";
+import { closeModal, openModal, AuthUser } from './../../../store/actions/modalAction/modalAction';
 
 const Auth = () => {
   const dispatch = useDispatch();
-  const error = useAppSelector((state) => state.auth.error);
+  const error = useAppSelector((state) => state.modal.error);
   const [value, setValue] = useState({
     email: "",
     password: "",
@@ -22,6 +24,7 @@ const Auth = () => {
   const submitHandler: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     dispatch(AuthUser(value));
+    // dispatch(closeModal())
   };
   return (
     <div className={classes.wrapper}>
@@ -70,8 +73,8 @@ const Auth = () => {
             </FormHelperText>
           </>
         )}
-
-        <Button variant="contained" type={"submit"}>
+        <Button variant="contained" onClick={() => dispatch(openModal(MODAL_TYPE.register))}>Зарегистрироваться</Button>
+        <Button variant="contained" type={"submit"} >
           Войти
         </Button>
       </form>
