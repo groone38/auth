@@ -2,12 +2,12 @@ import { AuthActionTypes } from "../store/actions/actionTypes"
 
 export interface AuthState {
     sing: boolean
-    error?: null | string
+    error: null | string
 }
 
 interface AuthErrorAction {
     type: AuthActionTypes.AUTH_ERROR
-    payload?: string
+    payload: string
 }
 
 interface AuthOpenModal {

@@ -20,10 +20,11 @@ export const removeUser = (id: number) => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             await axios.delete(`http://localhost:3001/users/${id}`)
-            fetchUsers()
+            
         } catch (error) {
             
         }
+        fetchUsers()
     }
 }
 

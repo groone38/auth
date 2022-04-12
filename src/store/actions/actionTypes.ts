@@ -10,3 +10,14 @@ export enum AuthActionTypes {
     AUTH_MODAL = 'AUTH_MODAL',
     AUTH_ERROR = 'AUTH_ERROR'
 }
+
+export enum ModalActionTypes {
+    OPEN_MODAL = 'OPEN_MODAL',
+}
+
+export const MODAL_TYPE = {
+	login: 0,
+	register: 1,
+	edit: 2,
+    close: 3
+}

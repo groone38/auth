@@ -6,8 +6,8 @@ import { fetchUsers } from "./store/actions/userAction/usersAction";
 import classes from "./App.module.css";
 import { AuthActionTypes } from "./store/actions/actionTypes";
 import { Header } from "./components/header/Header";
-import Auth from "./components/auth/Auth";
 import { useAppSelector } from "./Hooks";
+import Auth from './components/modal/auth/Auth';
 
 function App() {
   const sing = useAppSelector((state) => state.auth.sing);
