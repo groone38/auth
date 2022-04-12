@@ -16,9 +16,12 @@ function App() {
   const open = useAppSelector((state) => state.modal.is_open);
   const users = useAppSelector(state => state.users.users)
   const dispatch = useDispatch();
+  console.log(sing)
   useEffect(() => {
     if (!localStorage.getItem("auth")) {
       dispatch(openModal(MODAL_TYPE.login))
+    } else {
+      dispatch({type: AuthActionTypes.AUTH_MODAL})
     }
     dispatch(fetchUsers());
   }, []);

@@ -4,10 +4,19 @@ import { AuthActionTypes, ModalActionTypes, MODAL_TYPE } from '../actionTypes';
 import { store } from './../../rootReducer';
 import axios from "axios"
 
-export function openModal(typeModal: string) {
+interface OpenModal {
+    typeModal: string
+    id?: number
+}
+
+export function openModal(typeModal: string, id?: number) {
 	return (dispatch: Dispatch<ModalAction>) => {
         console.log(typeModal)
-        dispatch({type: ModalActionTypes.OPEN_MODAL, payload: typeModal})        
+        if(id) {
+            dispatch({type: ModalActionTypes.OPEN_MODAL, payload: typeModal, id})
+        } else {
+            dispatch({type: ModalActionTypes.OPEN_MODAL, payload: typeModal})
+        }
 	}
 }
 

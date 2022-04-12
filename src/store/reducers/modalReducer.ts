@@ -5,6 +5,7 @@ import { AuthActionTypes, ModalActionTypes } from "../actions/actionTypes";
 const initialState: ModalState = {
     typeModal: '',
     is_open: false,
+    params: null,
     sing: false,
     error: null
 }
@@ -15,7 +16,8 @@ export const modalReducer = (state = initialState, action: ModalAction): ModalSt
             return {
                 ...state,
                 is_open: true,
-                typeModal: action.payload??''
+                typeModal: action.payload??'',
+                params: action.id
             }
         case AuthActionTypes.AUTH_MODAL:
             return {

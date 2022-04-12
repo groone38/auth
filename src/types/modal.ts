@@ -4,6 +4,7 @@ import { AuthActionTypes, ModalActionTypes } from "../store/actions/actionTypes"
 export interface ModalState {
     is_open: boolean
     typeModal: string
+    params: null | number | undefined
     sing: boolean
     error: null | string
 }
@@ -11,6 +12,7 @@ export interface ModalState {
 interface ModalOpenAction {
     type: ModalActionTypes.OPEN_MODAL
     payload?: string
+    id?: number
 }
 
 interface ModalCloseAction {

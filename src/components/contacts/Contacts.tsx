@@ -38,7 +38,7 @@ const Contacts = () => {
           </Typography>
         </CardContent>
         <div className={classes.btn_block}>
-          <button className={classes.btn} onClick={() => dispatch(openModal(MODAL_TYPE.edit))}><EditIcon/></button>
+          <button className={classes.btn} onClick={() => dispatch(openModal(MODAL_TYPE.edit, item.id))}><EditIcon/></button>
           <button className={classes.btn} onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers())}}><DeleteForeverIcon/></button>
         </div>
       </Card>
