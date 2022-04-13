@@ -1,20 +1,33 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "andrey@yandex.ru",
-            "password": "123456"
-        },
-        {
-          
-            "id": 2,
-            "email": "lisin@yandex.ru",
-            "password": "123456"
-        },
-        {
-            "id": 3,
-            "email": "victorovich@yandex.ru",
-            "password": "123456"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "andrey@yandex.ru",
+      "password": "123456",
+      "firstName": "Lisin",
+      "middleName": "Andrey",
+      "lastName": "Victorovich",
+      "number": 88005553535,
+      "company": "Takeoff Staff"
+    },
+    {
+      "email": "lisin@devpro.ru",
+      "password": "123456",
+      "firstName": "Кравченко",
+      "middleName": "Антон",
+      "lastName": "Владимирович",
+      "number": "87789784545",
+      "company": "DevPro",
+      "id": 1649773281036
+    },
+    {
+      "id": 1649808424221,
+      "email": "andrey@yandex.ru",
+      "firstName": "Корниенко",
+      "middleName": "Эдуард",
+      "lastName": "Анатольевич",
+      "number": "89054437359",
+      "company": "Takeoff Staff"
+    }
+  ]
 }

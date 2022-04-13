@@ -1,0 +1,27 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.btn_block {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.btn {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.block {
+    text-align: center;
+    cursor: pointer;
+}
+
+.block:hover{
+    box-shadow: 20px -15px 10px 5px rgba(0, 0, 0, .5);
+}

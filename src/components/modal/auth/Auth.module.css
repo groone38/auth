@@ -1,16 +1,13 @@
 .wrapper {
     width: 100%;
-    height: calc(100vh - 64px);
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 400px;
     height: 100%;
-    margin: auto;
-    padding-bottom: 64px;
+    padding: 50px;
 }
 
 .form div {
