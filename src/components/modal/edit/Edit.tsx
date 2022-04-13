@@ -33,15 +33,16 @@ export const Edit = () => {
   };
   return (
     <form onSubmit={submitHandler} className={classes.form}>
+      <h1>Изменить ФИО</h1>
       {user.map((item) => {
         return (
           <>
-            <p>{item.email}</p>
-            <p>{item.firstName}</p>
+            <strong>Ваша почта:</strong> <p>{item.email}</p>
+            <strong>Ваша фамилия:</strong> <p>{item.firstName}</p>
             <Input id="firstName" name="firstName" onChange={valueHandler} />
-            <p>{item.middleName}</p>
+            <strong>Ваше имя:</strong> <p>{item.middleName}</p>
             <Input id="middleName" name="middleName" onChange={valueHandler} />
-            <p>{item.lastName}</p>
+            <strong>Ваше отчество:</strong> <p>{item.lastName}</p>
             <Input id="lastName" name="lastName" onChange={valueHandler} />
           </>
         );

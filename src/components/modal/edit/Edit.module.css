@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.form div {
+    margin-bottom: 20px;
+}

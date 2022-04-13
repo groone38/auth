@@ -13,7 +13,7 @@
     {
       "email": "lisin@devpro.ru",
       "password": "123456",
-      "firstName": "Кравчено",
+      "firstName": "Кравченко",
       "middleName": "Антон",
       "lastName": "Владимирович",
       "number": "87789784545",
@@ -28,6 +28,15 @@
       "lastName": "Анатольевич",
       "number": "89054437359",
       "company": "Takeoff Staff"
+    },
+    {
+      "id": 1649840594801,
+      "email": "",
+      "firstName": "Авраам",
+      "middleName": "Линкольн",
+      "lastName": "Младший",
+      "number": null,
+      "company": ""
     }
   ]
 }

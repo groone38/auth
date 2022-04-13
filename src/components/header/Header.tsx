@@ -8,8 +8,6 @@ import { OutUser } from "../../store/actions/modalAction/modalAction";
 import { useDispatch } from "react-redux";
 import classes from "./Header.module.css";
 import { NavLink } from 'react-router-dom';
-import { openModal } from "../../store/actions/modalAction/modalAction";
-import { MODAL_TYPE } from "../../store/actions/actionTypes";
 
 export const Header = () => {
   const dispatch = useDispatch();

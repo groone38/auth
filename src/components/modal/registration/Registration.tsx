@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { useDispatch } from 'react-redux';
 import { RegistrUser, openModal } from './../../../store/actions/modalAction/modalAction';
 import { MODAL_TYPE } from "../../../store/actions/actionTypes";
+import { fetchUsers } from "../../../store/actions/userAction/usersAction";
 
 export const Registration = () => {
   const dispatch = useDispatch()
@@ -27,6 +28,7 @@ export const Registration = () => {
   const submitHandler: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
     dispatch(RegistrUser(value))
+    dispatch(fetchUsers())
     dispatch(openModal(MODAL_TYPE.login))
   }
   return (
