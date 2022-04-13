@@ -3,7 +3,7 @@ import { UserActionTypes } from "../store/actions/actionTypes"
 export interface User {
     id: number
     email: string
-    password: string
+    password?: string
     firstName: string
     middleName: string
     lastName: string

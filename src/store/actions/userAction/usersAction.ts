@@ -6,7 +6,6 @@ import { store } from './../../rootReducer';
 
 export const fetchUsers = () => {
     return async (dispatch: Dispatch<UserAction>) => {
-        console.log('work')
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
             const responce = await axios.get('http://localhost:3001/users')

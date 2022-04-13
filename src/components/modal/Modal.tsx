@@ -14,7 +14,6 @@ export const Modal = () => {
   const typeModal = useAppSelector((state) => state.modal.typeModal);
   const modal = useAppSelector((state) => state.modal.is_open);
   const dispatch = useDispatch();
-  console.log(modal);
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
