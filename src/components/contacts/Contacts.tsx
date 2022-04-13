@@ -32,7 +32,7 @@ const Contacts = () => {
       <Search handlerCharChange={handlerCharChange} />
       <div className={classes.card}>
         {userSearch.map((item) => (
-          <ContactsItem item={item} />
+          <ContactsItem key={item.id} item={item} />
         ))}
         <Card
           sx={{ minWidth: 275 }}

@@ -36,7 +36,7 @@ export const Edit = () => {
       <h1>Изменить ФИО</h1>
       {user.map((item) => {
         return (
-          <>
+          <div key={item.id}>
             <strong>Ваша почта:</strong> <p>{item.email}</p>
             <strong>Ваша фамилия:</strong> <p>{item.firstName}</p>
             <Input id="firstName" name="firstName" onChange={valueHandler} />
@@ -44,7 +44,7 @@ export const Edit = () => {
             <Input id="middleName" name="middleName" onChange={valueHandler} />
             <strong>Ваше отчество:</strong> <p>{item.lastName}</p>
             <Input id="lastName" name="lastName" onChange={valueHandler} />
-          </>
+          </div>
         );
       })}
 
