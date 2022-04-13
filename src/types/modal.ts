@@ -37,7 +37,4 @@ interface ModalCloseAction {
     type: ModalActionTypes.CLOSE_MODAL
 }
 
-
-// export type AuthAction = AuthErrorAction | AuthOpenModal | ModalCloseAction
-
 export type ModalAction = ModalOpenAction | ModalCloseAction | AuthErrorAction | AuthOpenModal | ModalCloseAction

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../Hooks";
-// import { AuthUser} from "../../../store/actions/userAction/authAction";
 import Button from "@mui/material/Button";
 import { InputLabel, Input, FormHelperText } from "@mui/material";
 import classes from "./Auth.module.css";

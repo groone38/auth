@@ -4,11 +4,6 @@ import { AuthActionTypes, ModalActionTypes, MODAL_TYPE } from '../actionTypes';
 import { store } from './../../rootReducer';
 import axios from "axios"
 
-interface OpenModal {
-    typeModal: string
-    id?: number
-}
-
 export function openModal(typeModal: string, id?: number) {
 	return (dispatch: Dispatch<ModalAction>) => {
         if(id) {
@@ -68,7 +63,7 @@ interface Registr {
 }
 
 export const RegistrUser = (value: Registr) => {
-    return async (dispatch: Dispatch<ModalAction>) => {
+    return async () => {
         console.log(value)
         try {
             await axios.post('http://localhost:3001/users', {id: Date.now(), ...value })
