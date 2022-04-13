@@ -6,6 +6,7 @@ import { store } from './../../rootReducer';
 
 export const fetchUsers = () => {
     return async (dispatch: Dispatch<UserAction>) => {
+        console.log('work')
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
             const responce = await axios.get('http://localhost:3001/users')
@@ -17,14 +18,12 @@ export const fetchUsers = () => {
 }
 
 export const removeUser = (id: number) => {
-    return async (dispatch: Dispatch<UserAction>) => {
+    return async () => {
         try {
             await axios.delete(`http://localhost:3001/users/${id}`)
-            fetchUsers()
         } catch (error) {
-            
+            console.log(error)
         }
-        
     }
 }
 
@@ -35,7 +34,7 @@ interface EditUser {
 }
 
 export const editUser = (id: number | undefined | null, value: EditUser) => {
-    return async (dispatch: Dispatch<UserAction>) => {
+    return async () => {
         const user = store.getState().users.users.filter(user => user.id === id)
         const data = {
             ...user[0],
@@ -43,12 +42,28 @@ export const editUser = (id: number | undefined | null, value: EditUser) => {
             middleName: value.middleName,
             lastName: value.lastName
         }
-        console.log(data)
         try {
             await axios.put(`http://localhost:3001/users/${id}`, data)
-            
         } catch (error) {
             console.log('error')
+        }
+    }
+}
+interface Add {
+    email: string,
+    firstName: string,
+    middleName: string,
+    lastName: string,
+    number: number | null,
+    company: string
+}
+
+export const addUser = (value: Add) => {
+    return async () => {
+        try {
+            await axios.post('http://localhost:3001/users', {id: Date.now(), ...value })
+        } catch (error) {
+            console.log(error)
         }
     }
 }

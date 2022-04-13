@@ -1,22 +1,26 @@
 import { useAppSelector } from "../../Hooks";
 import { useDispatch } from "react-redux";
 import {
-  Button,
   Card,
-  CardActions,
   CardContent,
   Typography,
 } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
 import classes from './Contacts.module.css'
 import { fetchUsers, removeUser } from "../../store/actions/userAction/usersAction";
 import { openModal } from "../../store/actions/modalAction/modalAction";
 import { MODAL_TYPE } from "../../store/actions/actionTypes";
+import { useEffect, useState } from "react";
 
 const Contacts = () => {
+  const [update, setUpdate] = useState(false)
   const dispatch = useDispatch();
   const users = useAppSelector((state) => state.users.users);
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [update])
   return (
     <div className={classes.card}>
       {users.map((item) => (
@@ -38,11 +42,14 @@ const Contacts = () => {
           </Typography>
         </CardContent>
         <div className={classes.btn_block}>
-          <button className={classes.btn} onClick={() => dispatch(openModal(MODAL_TYPE.edit, item.id))}><EditIcon/></button>
-          <button className={classes.btn} onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers())}}><DeleteForeverIcon/></button>
+          <button className={classes.btn} onClick={() => {dispatch(openModal(MODAL_TYPE.edit, item.id)); setUpdate(!update)}}><EditIcon/></button>
+          <button className={classes.btn} onClick={() => {dispatch(removeUser(item.id)); dispatch(fetchUsers()); setUpdate(!update)}}><DeleteForeverIcon/></button>
         </div>
       </Card>
       ))}
+     <Card sx={{ minWidth: 275 }} className={classes.block} onClick={() => dispatch(openModal(MODAL_TYPE.add))}>
+      <AddIcon />
+    </Card>
     </div>
   );
 };

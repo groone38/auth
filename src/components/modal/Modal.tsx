@@ -7,6 +7,7 @@ import classes from "./Modal.module.css";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../store/actions/modalAction/modalAction";
 import { Edit } from './edit/Edit';
+import { AddContact } from './addContacts/AddContact';
 
 
 export const Modal = () => {
@@ -30,6 +31,9 @@ export const Modal = () => {
       break;
     case MODAL_TYPE.edit:
       body = <Edit />
+      break;
+    case MODAL_TYPE.add:
+      body = <AddContact />
       break;
     default:
       break;

@@ -3,7 +3,8 @@ import classes from "./Registration.module.css";
 import { Input, InputLabel } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useDispatch } from 'react-redux';
-import { RegistrUser } from './../../../store/actions/modalAction/modalAction';
+import { RegistrUser, openModal } from './../../../store/actions/modalAction/modalAction';
+import { MODAL_TYPE } from "../../../store/actions/actionTypes";
 
 export const Registration = () => {
   const dispatch = useDispatch()
@@ -26,8 +27,8 @@ export const Registration = () => {
   const submitHandler: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
     dispatch(RegistrUser(value))
+    dispatch(openModal(MODAL_TYPE.login))
   }
-  console.log(value);
   return (
     <form onSubmit={submitHandler} className={classes.form}>
       <InputLabel htmlFor="email">Введите свой email</InputLabel>
@@ -46,6 +47,9 @@ export const Registration = () => {
       <Input id="company" name="company" onChange={valueHandler} />
       <Button variant="contained" type={"submit"}>
         Зарегистрироваться
+      </Button>
+      <Button variant="contained" type={"button"} onClick={() => dispatch(openModal(MODAL_TYPE.login))}>
+        Назад
       </Button>
     </form>
   );

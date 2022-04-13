@@ -11,7 +11,6 @@ interface OpenModal {
 
 export function openModal(typeModal: string, id?: number) {
 	return (dispatch: Dispatch<ModalAction>) => {
-        console.log(typeModal)
         if(id) {
             dispatch({type: ModalActionTypes.OPEN_MODAL, payload: typeModal, id})
         } else {
@@ -22,7 +21,6 @@ export function openModal(typeModal: string, id?: number) {
 
 export function closeModal() {
 	return (dispatch: Dispatch<ModalAction>) => {
-		console.log('work')
 		dispatch({type: ModalActionTypes.CLOSE_MODAL})
 	}
 }

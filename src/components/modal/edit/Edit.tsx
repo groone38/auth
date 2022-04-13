@@ -1,12 +1,11 @@
-import { InputLabel } from "@mui/material";
 import React, { useState } from "react";
 import classes from "./Edit.module.css";
 import { Input } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useAppSelector } from "../../../Hooks";
 import { useDispatch } from "react-redux";
-import { editUser } from "./../../../store/actions/userAction/usersAction";
-import axios from "axios";
+import { editUser, fetchUsers } from "./../../../store/actions/userAction/usersAction";
+import { closeModal } from "../../../store/actions/modalAction/modalAction";
 
 export const Edit = () => {
   const dispatch = useDispatch();
@@ -19,16 +18,7 @@ export const Edit = () => {
     middleName: "",
     lastName: "",
   });
-
-//   const edit = async() => {
-//       try {
-          
-//         await axios.put(`http://localhost:3001/users/${user_id}`, { firstName: value.firstName, middleName: value.middleName, lastName: value.lastName})
-//       } catch (error) {
-          
-//       }
-//   }
-
+     
   const valueHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue({
       ...value,
@@ -37,8 +27,9 @@ export const Edit = () => {
   };
   const submitHandler: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    // edit()
     dispatch(editUser(user_id, value));
+    dispatch(closeModal())
+    dispatch(fetchUsers())
   };
   return (
     <form onSubmit={submitHandler} className={classes.form}>

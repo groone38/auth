@@ -16,3 +16,12 @@
     border: none;
     cursor: pointer;
 }
+
+.block {
+    text-align: center;
+    cursor: pointer;
+}
+
+.block:hover{
+    box-shadow: 20px -15px 10px 5px rgba(0, 0, 0, .5);
+}

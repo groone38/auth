@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { InputLabel, Input, FormHelperText } from "@mui/material";
 import classes from "./Auth.module.css";
 import { MODAL_TYPE } from "../../../store/actions/actionTypes";
-import { closeModal, openModal, AuthUser } from './../../../store/actions/modalAction/modalAction';
+import { openModal, AuthUser } from './../../../store/actions/modalAction/modalAction';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,6 @@ const Auth = () => {
   const submitHandler: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     dispatch(AuthUser(value));
-    // dispatch(closeModal())
   };
   return (
     <div className={classes.wrapper}>
@@ -35,6 +34,7 @@ const Auth = () => {
             <Input id="email" name="email" onChange={valueHandler} />
             <InputLabel htmlFor="password">Введите свой пароль</InputLabel>
             <Input
+              type="password"
               id="password"
               aria-describedby="error-password"
               name="password"
