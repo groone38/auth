@@ -8,7 +8,6 @@ import { openModal } from "../../store/actions/modalAction/modalAction";
 import { MODAL_TYPE } from "../../store/actions/actionTypes";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../store/actions/userAction/usersAction";
-import { fetchUsers } from "./../../store/actions/userAction/usersAction";
 
 interface ContactsItemProps {
   item: User;
@@ -18,10 +17,9 @@ export const ContactsItem: FC<ContactsItemProps> = ({ item }) => {
   const dispatch = useDispatch();
   const remove = (id: number) => {
     dispatch(removeUser(id));
-    dispatch(fetchUsers());
   };
   return (
-    <Card key={item.id} sx={{ minWidth: 275 }}>
+    <Card key={item.id} sx={{ minWidth: 275 }} className={classes.item}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Contact

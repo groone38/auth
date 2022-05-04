@@ -1,8 +1,9 @@
 import axios from "axios"
-import { Dispatch } from "redux"
+import { AnyAction, Dispatch } from "redux"
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { UserAction } from "../../../types/users"
 import { UserActionTypes } from "../actionTypes"
-import { store } from './../../rootReducer';
+import { RootState, store } from './../../rootReducer';
 
 export const fetchUsers = () => {
     return async (dispatch: Dispatch<UserAction>) => {
@@ -16,10 +17,11 @@ export const fetchUsers = () => {
     }
 }
 
-export const removeUser = (id: number) => {
-    return async () => {
+export const removeUser = (id: number):ThunkAction<void, RootState, void, AnyAction> => {
+    return async (dispatch: ThunkDispatch<RootState, void, AnyAction>) => {
         try {
             await axios.delete(`http://localhost:3001/users/${id}`)
+            dispatch(fetchUsers())
         } catch (error) {
             console.log(error)
         }
